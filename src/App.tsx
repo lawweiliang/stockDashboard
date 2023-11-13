@@ -6,6 +6,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
+import CaseDashboard from "./pages/CaseDashboard";
 import SignIn from "./pages/SignIn";
 
 function App() {
@@ -25,6 +26,10 @@ function App() {
 
     switch (pathname) {
       case "/":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/casedashboard":
         title = "";
         metaDescription = "";
         break;
@@ -51,6 +56,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Dashboard />} />
+      <Route path="/casedashboard" element={<CaseDashboard />} />
       <Route path="/sign-in" element={<SignIn />} />
     </Routes>
   );

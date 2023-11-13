@@ -1,6 +1,6 @@
 import { FunctionComponent, useMemo, type CSSProperties } from "react";
 
-type DashboardContainerType = {
+type DashboardCardType = {
   metricValue?: string;
   financialMetricValue?: string;
   metricTextValue?: string;
@@ -10,7 +10,7 @@ type DashboardContainerType = {
   propJustifyContent?: CSSProperties["justifyContent"];
 };
 
-const DashboardContainer: FunctionComponent<DashboardContainerType> = ({
+const DashboardCard: FunctionComponent<DashboardCardType> = ({
   metricValue,
   financialMetricValue,
   metricTextValue,
@@ -31,7 +31,7 @@ const DashboardContainer: FunctionComponent<DashboardContainerType> = ({
 
   return (
     <div
-      className="flex-1 rounded-3xs bg-darkish-color-dark-2 flex flex-row items-center justify-start py-6 px-5 gap-[15px] text-left text-sm text-text-color-text-2 font-extra-font-size-18-semibold lg:flex-1 md:flex-[unset] md:self-stretch"
+      className="flex-1 rounded-3xs bg-darkish-color-dark-2 flex flex-row items-center justify-start py-6 px-5 gap-[15px] text-left text-sm text-text-color-text-2 font-size-14-size-14-medium lg:flex-1 md:flex-[unset] md:self-stretch"
       style={totalBalanceStyle}
     >
       <img className="relative w-[42px] h-[42px]" alt="" src={metricValue} />
@@ -50,4 +50,4 @@ const DashboardContainer: FunctionComponent<DashboardContainerType> = ({
   );
 };
 
-export default DashboardContainer;
+export default DashboardCard;

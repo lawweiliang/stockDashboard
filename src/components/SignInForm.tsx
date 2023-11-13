@@ -9,7 +9,7 @@ const SignInForm: FunctionComponent = () => {
   }, [navigate]);
 
   return (
-    <div className="flex flex-col items-start justify-start gap-[25px] text-left text-11xl text-text-color-pure-white font-extra-font-size-18-semibold md:self-stretch md:w-auto">
+    <div className="flex flex-col items-start justify-start gap-[25px] text-left text-11xl text-text-color-pure-white font-size-14-size-14-medium md:self-stretch md:w-auto">
       <div className="flex flex-col items-start justify-start gap-[8px] md:self-stretch md:w-auto">
         <div className="relative font-semibold md:self-stretch md:w-auto">
           Welcome back
@@ -25,7 +25,7 @@ const SignInForm: FunctionComponent = () => {
               <div className="flex-1 relative font-medium">Email</div>
             </div>
             <input
-              className="font-medium font-extra-font-size-18-semibold text-sm bg-[transparent] rounded-3xs box-border w-[404px] flex flex-row items-center justify-start pt-[15px] pb-4 pr-[25px] pl-5 text-[white] border-[1px] border-solid border-darkish-color-dark-2 md:self-stretch md:w-auto"
+              className="font-medium font-size-14-size-14-medium text-sm bg-[transparent] rounded-3xs box-border w-[404px] flex flex-row items-center justify-start pt-[15px] pb-4 pr-[25px] pl-5 text-[white] border-[1px] border-solid border-darkish-color-dark-2 md:self-stretch md:w-auto"
               placeholder="Enter your email"
               type="text"
             />

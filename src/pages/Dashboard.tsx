@@ -1,108 +1,36 @@
-import { FunctionComponent, useEffect } from "react";
-import DashboardContainer from "../components/DashboardContainer";
+import { FunctionComponent } from "react";
+import Logo from "../components/Logo";
+import Bar from "../components/Bar";
+import Bar1 from "../components/Bar1";
+import Bar2 from "../components/Bar2";
+import Bar3 from "../components/Bar3";
+import Bar4 from "../components/Bar4";
+import DashboardCard from "../components/DashboardContainer";
 
 const Dashboard: FunctionComponent = () => {
-  useEffect(() => {
-    const scrollAnimElements = document.querySelectorAll(
-      "[data-animate-on-scroll]"
-    );
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting || entry.intersectionRatio > 0) {
-            const targetElement = entry.target;
-            targetElement.classList.add("animate");
-            observer.unobserve(targetElement);
-          }
-        }
-      },
-      {
-        threshold: 0.15,
-      }
-    );
-
-    for (let i = 0; i < scrollAnimElements.length; i++) {
-      observer.observe(scrollAnimElements[i]);
-    }
-
-    return () => {
-      for (let i = 0; i < scrollAnimElements.length; i++) {
-        observer.unobserve(scrollAnimElements[i]);
-      }
-    };
-  }, []);
   return (
-    <div className="relative bg-darkish-color-dark-bg w-full h-screen overflow-hidden flex flex-row items-start justify-start text-left text-lg text-text-color-pure-white font-poppins lg:h-screen lg:flex-row">
-      <div className="h-[900px] flex flex-row items-start justify-start lg:[&_.maglo]:hover:flex lg:[&_.transactions]:hover:flex lg:[&_.transactions]:hover:flex lg:[&_.transactions]:hover:flex lg:[&_.transactions]:hover:flex lg:[&_.transactions]:hover:flex lg:[&_.transactions]:hover:flex lg:[&_.dashboard1]:hover:flex">
+    <div className="relative bg-darkish-color-dark-bg w-full h-screen overflow-hidden flex flex-row items-start justify-start text-left text-sm text-text-color-text-2 font-size-14-size-14-medium lg:h-screen lg:flex-row">
+      <div className="h-[900px] flex flex-row items-start justify-start lg:[&_.maglo2]:hover:flex lg:[&_.dashboard5]:hover:flex lg:[&_.dashboard5]:hover:flex lg:[&_.settings1]:hover:flex lg:[&_.my-wallets1]:hover:flex lg:[&_.invoices1]:hover:flex lg:[&_.transactions1]:hover:flex lg:[&_.dashboard8]:hover:flex">
         <div className="self-stretch bg-darkish-color-dark-shade w-[250px] flex flex-col items-start justify-center pt-[30px] px-[25px] pb-[100px] box-border gap-[40px] lg:w-auto lg:self-stretch lg:h-auto">
-          <div
-            className="self-stretch h-[30px] flex flex-row items-center justify-start gap-[12px] [&.animate]:animate-[1s_linear_5s_infinite_normal_forwards_wobble-hor-bottom] opacity-[1] lg:h-auto lg:items-center lg:justify-center lg:pl-0 lg:box-border"
-            data-animate-on-scroll
-          >
-            <img
-              className="relative w-[30px] h-[30px]"
-              alt=""
-              src="/exclude.svg"
-            />
-            <b className="maglo relative inline-block w-20 h-[23px] shrink-0 lg:hidden">
-              Maglo.
-            </b>
-          </div>
-          <div className="self-stretch flex-1 flex flex-col items-start justify-between text-sm text-text-color-text-2 font-extra-font-size-18-semibold lg:w-auto lg:[align-self:unset]">
+          <Logo />
+          <div className="self-stretch flex-1 flex flex-col items-start justify-between lg:w-auto lg:[align-self:unset]">
             <div className="self-stretch h-[126px] flex flex-col items-start justify-start gap-[2px] lg:w-auto lg:[align-self:unset]">
-              <button className="cursor-pointer [border:none] py-3.5 px-[15px] bg-primary-color self-stretch rounded-lg h-12 flex flex-row items-center justify-start box-border gap-[12px] lg:w-auto lg:[align-self:unset]">
-                <img
-                  className="relative w-5 h-5 overflow-hidden shrink-0 lg:w-5 lg:h-5"
-                  alt=""
-                  src="/dashboard.svg"
-                />
-                <div className="dashboard1 relative text-sm font-semibold font-extra-font-size-18-semibold text-text-color-text-1 text-left lg:hidden">
-                  Dashboard
-                </div>
-              </button>
-              <div className="rounded-lg w-[200px] h-12 flex flex-row items-center justify-start py-3.5 px-[15px] box-border gap-[12px] lg:w-auto lg:[align-self:unset]">
-                <img
-                  className="relative w-5 h-5"
-                  alt=""
-                  src="/transactions.svg"
-                />
-                <div className="transactions relative font-medium lg:hidden">
-                  Transactions
-                </div>
-              </div>
-              <div className="rounded-lg w-[200px] h-12 flex flex-row items-center justify-start py-3.5 px-[15px] box-border gap-[12px] lg:w-auto lg:[align-self:unset]">
-                <img className="relative w-5 h-5" alt="" src="/invoices.svg" />
-                <div className="transactions relative font-medium lg:hidden">
-                  Invoices
-                </div>
-              </div>
-              <div className="rounded-lg w-[200px] h-12 flex flex-row items-center justify-start py-3.5 px-[15px] box-border gap-[12px] lg:w-auto lg:[align-self:unset]">
-                <img
-                  className="relative w-5 h-5"
-                  alt=""
-                  src="/my-wallets.svg"
-                />
-                <div className="transactions relative font-medium lg:hidden">
-                  My Wallets
-                </div>
-              </div>
-              <div className="rounded-lg w-[200px] h-12 flex flex-row items-center justify-start py-3.5 px-[15px] box-border gap-[12px] lg:w-auto lg:[align-self:unset]">
-                <img className="relative w-5 h-5" alt="" src="/settings.svg" />
-                <div className="transactions relative font-medium lg:hidden">
-                  Settings
-                </div>
-              </div>
+              <Bar />
+              <Bar1 />
+              <Bar2 />
+              <Bar3 />
+              <Bar4 />
             </div>
             <div className="self-stretch h-[126px] flex flex-col items-start justify-start gap-[2px] lg:w-auto lg:[align-self:unset]">
               <div className="rounded-lg w-[200px] h-12 flex flex-row items-center justify-start py-3.5 px-[15px] box-border gap-[12px] lg:w-auto lg:[align-self:unset]">
-                <img className="relative w-5 h-5" alt="" src="/help.svg" />
-                <div className="transactions relative font-medium lg:hidden">
+                <img className="relative w-5 h-5" alt="" src="/help1.svg" />
+                <div className="dashboard5 relative font-medium lg:hidden">
                   Help
                 </div>
               </div>
               <div className="rounded-lg w-[200px] h-12 flex flex-row items-center justify-start py-3.5 px-[15px] box-border gap-[12px] lg:w-auto lg:[align-self:unset]">
-                <img className="relative w-5 h-5" alt="" src="/logout.svg" />
-                <div className="transactions relative font-medium lg:hidden">
+                <img className="relative w-5 h-5" alt="" src="/logout1.svg" />
+                <div className="dashboard5 relative font-medium lg:hidden">
                   Logout
                 </div>
               </div>
@@ -110,7 +38,7 @@ const Dashboard: FunctionComponent = () => {
           </div>
         </div>
       </div>
-      <div className="self-stretch flex-1 overflow-y-auto flex flex-col items-start justify-start py-[30px] px-10 box-border gap-[30px] h-screen text-[25px] font-extra-font-size-18-semibold">
+      <div className="self-stretch flex-1 overflow-y-auto flex flex-col items-start justify-start py-[30px] px-10 box-border gap-[30px] h-screen text-6xl text-text-color-pure-white">
         <div className="self-stretch flex flex-row items-center justify-between md:self-stretch md:w-auto">
           <div className="relative font-semibold md:hidden">Dashboard</div>
           <div className="w-[353px] flex flex-row items-center justify-between text-sm md:flex-1">
@@ -118,27 +46,27 @@ const Dashboard: FunctionComponent = () => {
               <img
                 className="relative w-6 h-6 overflow-hidden shrink-0"
                 alt=""
-                src="/search1-1.svg"
+                src="/search1-11.svg"
               />
               <img
                 className="relative w-6 h-6 overflow-hidden shrink-0"
                 alt=""
-                src="/notificationbing5-1.svg"
+                src="/notificationbing5-11.svg"
               />
             </div>
-            <div className="rounded-[100px] bg-darkish-color-dark-1 w-[215px] flex flex-row items-center justify-between py-1.5 pr-[15px] pl-[7px] box-border">
+            <div className="rounded-81xl bg-darkish-color-dark-1 w-[215px] flex flex-row items-center justify-between py-1.5 pr-[15px] pl-[7px] box-border">
               <div className="flex flex-row items-center justify-start gap-[12px]">
                 <img
                   className="relative rounded-[50%] w-9 h-9 object-cover"
                   alt=""
-                  src="/ellipse-1@2x.png"
+                  src="/ellipse-11@2x.png"
                 />
                 <div className="relative font-semibold">Nicolas Aguirre</div>
               </div>
               <img
                 className="relative w-[17px] h-[17px] overflow-hidden shrink-0"
                 alt=""
-                src="/dropdown.svg"
+                src="/dropdown1.svg"
               />
             </div>
           </div>
@@ -147,19 +75,19 @@ const Dashboard: FunctionComponent = () => {
           <div className="flex-1 flex flex-col items-end justify-start gap-[31px] lg:self-stretch lg:w-auto lg:flex-[unset]">
             <div className="self-stretch flex flex-col items-start justify-start gap-[30px]">
               <div className="self-stretch flex flex-row items-start justify-start gap-[25px] md:flex-col">
-                <DashboardContainer
+                <DashboardCard
                   metricValue="/icon.svg"
                   financialMetricValue="Net Worth"
                   metricTextValue="$524"
                 />
-                <DashboardContainer
+                <DashboardCard
                   metricValue="/icon1.svg"
                   financialMetricValue="Spending"
                   metricTextValue="$250"
                   propBackgroundColor="#201e34"
                   propJustifyContent="center"
                 />
-                <DashboardContainer
+                <DashboardCard
                   metricValue="/icon2.svg"
                   financialMetricValue="Saved"
                   metricTextValue="$550"
@@ -204,7 +132,7 @@ const Dashboard: FunctionComponent = () => {
               <div className="self-stretch flex flex-col items-start justify-start text-sm">
                 <div className="self-stretch h-10 flex flex-row items-center justify-between">
                   <div className="w-[261.3px] h-10 overflow-hidden shrink-0 flex flex-row items-center justify-start gap-[20px]">
-                    <div className="rounded-[5px] bg-darkish-color-dark-2 w-[59.1px] h-10 overflow-hidden shrink-0 flex flex-col items-center justify-center">
+                    <div className="rounded-8xs bg-darkish-color-dark-2 w-[59.1px] h-10 overflow-hidden shrink-0 flex flex-col items-center justify-center">
                       <img
                         className="relative w-[47.3px] h-[30px] object-cover"
                         alt=""
